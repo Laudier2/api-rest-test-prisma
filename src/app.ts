@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express"
 import { router } from "./routes/routers"
 
-const port = 3000 || 3001
+const port = process.env.PORT || 3001
 
 const app = express()
 
