@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator erd {
+  provider = "prisma-erd-generator"
+  output   = "/home/hk/Desktop/demostration/ERD.svg"
+}
+
+model Product {
+  id          String  @id @default(uuid())
+  name        String
+  price       Decimal
+  description String
+
+  productCategory Product_Category[]
+
+  @@map("products")
+}
+
+model Category {
+  id   String @id @default(uuid())
+  name String
+
+  productCategory Product_Category[]
+
+  @@map("catgories")
+}
+
+model Product_Category {
+  id String @id @default(uuid())
+
+  id_product String
+  product    Product @relation(fields: [id_product], references: [id])
+
+  id_category String
+  category    Category @relation(fields: [id_category], references: [id])
+
+  @@map("productcategory")
+}
