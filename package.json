@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/app.ts"
+    "dev": "nodemon ./src/app.ts",
+    "build": "rm -rf ./dist && tsc",
+    "start": "node ./src/app.ts"
   },
   "devDependencies": {
     "@mermaid-js/mermaid-cli": "^9.1.7",
