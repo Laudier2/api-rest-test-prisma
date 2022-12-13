@@ -1,4 +1,4 @@
-# api-rest-test-prisma# api-users-products-TSC
+# api-rest-test-prisma
 
 <h1 align="center">
   <center>Prisma: o ORM Node.js que você precisa em 2022
